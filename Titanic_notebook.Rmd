@@ -1,0 +1,50 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#視覚化
+library('ggplot2') 
+library('ggthemes')
+library('ggforce')
+library('ggExtra')
+library('GGally')
+library('scales')
+library('grid')
+library('gridExtra')
+library('corrplot')
+#欠損値
+library('VIM')
+#データ操作
+library('dplyr') 
+library('tidyr') 
+library('readr')
+library('stringr') 
+library('forcats') 
+library('modelr')
+#モデル化
+library('randomForest')
+library('xgboost')
+library('ROCR')
+```
+
+
+```{r}
+train <- read_csv('input/train.csv')
+test  <- read_csv('input/test.csv')
+```
+
+学習用データ、テストデータをインポートしたら、結合させてすべてのデータに対して俯瞰的に眺めるようにする。
+```{r}
+combine <- bind_rows(train,test)
+```
+
+```{r}
+summary(combine)
+```
+
+```{r}
+glimpse(combine)
+```
+
